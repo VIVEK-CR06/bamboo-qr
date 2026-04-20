@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&display=swap');
+
+/* Smooth theme transitions */
+html {
+	transition:
+		background-color 0.35s cubic-bezier(0.2, 0, 0, 1),
+		color 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ─── Design Tokens ─── */
+@layer base {
+	:root {
+		/* Thermochromic Core */
+		--cold: #880dad;    /* Purple */
+		--ambient: #e61e1e; /* Red */
+		--hot: #121212;     /* Black */
+
+		/* Surface Hierarchy */
+		--surface: #131313;
+		--surface-dim: #101010;
+		--surface-container-low: #1c1b1b;
+		--surface-container: #222222;
+		--surface-container-high: #2a2a2a;
+		--surface-container-highest: #333333;
+
+		/* Accent */
+		--primary: #f0b0ff;
+		--primary-container: #880dad;
+		--on-primary: #54006d;
+		--on-surface: #e5e2e1;
+		--on-surface-variant: #c4c0bf;
+		--outline-variant: #4a4646;
+
+		/* Font */
+		--font-display: 'Lora', serif;
+		--font-body: 'Manrope', sans-serif;
+	}
+
+	/* ─── Light Mode Tokens ─── */
+	[data-theme='light'] {
+		--surface: #f7f2fb;
+		--surface-dim: #ede6f4;
+		--surface-container-low: #ede6f4;
+		--surface-container: #e4dbed;
+		--surface-container-high: #d9cfe5;
+		--surface-container-highest: #cec2dc;
+		--on-surface: #1e0a2e;
+		--on-surface-variant: #4a3560;
+		--outline-variant: #c5b3d8;
+		/* Accent stays vivid on light bg */
+		--primary: #7b00a0;
+		--primary-container: #9b1fc0;
+		--on-primary: #ffffff;
+	}
+
+	html {
+		font-size: 16px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		font-family: var(--font-body);
+		background: var(--surface);
+		color: var(--on-surface);
+		min-height: 100vh;
+		overflow-x: hidden;
+	}
+
+	img {
+		max-width: 100%;
+		display: block;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	button {
+		cursor: pointer;
+		font-family: inherit;
+		border: none;
+		outline: none;
+		background: none;
+	}
+
+	::selection {
+		background: var(--primary-container);
+		color: var(--on-surface);
+	}
+}
